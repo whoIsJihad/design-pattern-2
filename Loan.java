@@ -40,7 +40,7 @@ class RegularLoan extends Loan{
     }
 
     public double calculateInterest(int years){
-        return this.amountOfLoan * this.interestRate*years;
+        return this.getDueAmount() * this.interestRate*years;
     }
 }
 
@@ -52,7 +52,7 @@ class PremiumLoan extends Loan{
     }
 
     public double calculateInterest(int years){
-        return this.amountOfLoan * this.interestRate*years;
+        return this.getDueAmount() * this.interestRate*years;
     }
 }
 
@@ -64,6 +64,6 @@ class VIPLoan extends Loan{
     }
 
     public double calculateInterest(int years){
-        return this.amountOfLoan * this.interestRate*years;
+        return this.getDueAmount() * this.interestRate*years;
     }
 }

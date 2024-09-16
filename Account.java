@@ -1,23 +1,28 @@
-public abstract class Account{
+public abstract class Account {
     double balance;
-    public Account(){
-        this.balance =0;
+
+    public Account() {
+        this.balance = 0;
     }
 
-    public void deposit(int amount){
-        if(amount <= 0){
+    public void deposit(double amount) {
+        if (amount <= 0) {
             throw new IllegalArgumentException("Deposit amount must be greater than 0");
         }
 
         this.balance += amount;
     }
 
-    public void withdraw(int amount){
-        if(amount <= 0){
+    public double getBalance() {
+        return this.balance;
+    }
+
+    public void withdraw(double amount) {
+        if (amount <= 0) {
             throw new IllegalArgumentException("Withdrawal amount must be greater than 0");
         }
 
-        if(amount > this.balance){
+        if (amount > this.balance) {
             throw new IllegalArgumentException("Insufficient funds");
         }
 
@@ -28,40 +33,40 @@ public abstract class Account{
 
 }
 
-class RegularAccount extends Account{
+class RegularAccount extends Account {
     double interestRate;
 
-    public RegularAccount(){
+    public RegularAccount() {
         this.interestRate = 0.025;
     }
 
-    public double calculateInterest(int years){
-        return this.balance * this.interestRate*years;
+    public double calculateInterest(int years) {
+        return this.balance * this.interestRate * years;
     }
-    
+
 }
 
-class PremiumAccount extends Account{
+class PremiumAccount extends Account {
     double interestRate;
 
-    public PremiumAccount(){
+    public PremiumAccount() {
         this.interestRate = 0.035;
     }
 
-    public double calculateInterest(int years){
-        return this.balance * this.interestRate*years;
+    public double calculateInterest(int years) {
+        return this.balance * this.interestRate * years;
     }
-    
+
 }
 
-class VIPAccount extends Account{
+class VIPAccount extends Account {
     double interestRate;
 
-    public VIPAccount(){
+    public VIPAccount() {
         this.interestRate = 0.050;
     }
 
-    public double calculateInterest(int years){
-        return this.balance * this.interestRate*years;
+    public double calculateInterest(int years) {
+        return this.balance * this.interestRate * years;
     }
 }

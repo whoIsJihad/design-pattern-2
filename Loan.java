@@ -1,7 +1,7 @@
 public abstract class Loan{
-    double amountOfLoan;
+    private double amountOfLoan;
 
-    double loanDuration;
+    private int loanDuration;
 
     abstract double calculateInterest(int years); 
 
@@ -12,10 +12,28 @@ public abstract class Loan{
 
         this.amountOfLoan -= amount;
     }
+    public double getDueAmount(){
+        return this.amountOfLoan;
+    }
+
+    public void setAmountOfLoan(double amount){
+        if(amount <= 0){
+            throw new IllegalArgumentException("Loan amount must be greater than 0");
+        }
+
+        this.amountOfLoan = amount;
+    }
+    public void setLoanDuration(int duration){
+        if(duration <= 0){
+            throw new IllegalArgumentException("Loan duration must be greater than 0");
+        }
+
+        this.loanDuration = duration;
+    }
 }
 
 class RegularLoan extends Loan{
-    double interestRate;
+    private double interestRate;
 
     public RegularLoan(){
         this.interestRate = 0.14;
